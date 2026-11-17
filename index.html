@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Libro 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="home"><div class="hd"><h1>La mia libreria</h1><button class="musbtn" aria-label="Musica di sottofondo">♪ Musica</button><button id="epubb">Importa EPUB</button><button id="newb" class="p">Nuovo libro</button></div><div class="case"><div id="shelf"></div></div></div>
+<div id="reader" hidden>
+<div class="bar">
+  <button id="tohome" class="gh">‹ Libreria</button>
+  <input spellcheck="false" id="title" placeholder="Titolo del documento" aria-label="Titolo">
+  <div class="seg"><button id="fminus" aria-label="Riduci testo">A−</button><button id="fplus" aria-label="Ingrandisci testo">A+</button></div>
+  <button id="rd" class="gh">Leggi</button>
+  <button id="hlt" class="gh" title="Mostra o nascondi le evidenziazioni">Evidenziati</button>
+  <button class="musbtn gh" aria-label="Musica di sottofondo" title="Musica">♪</button>
+  <button id="mbtn" class="gh" aria-label="Altre azioni" aria-haspopup="true" aria-expanded="false" title="Altre azioni">⋯</button>
+  <input type="file" id="file" accept=".json,application/json" hidden>
+  <div id="menu" class="menu" hidden>
+    <button id="addp">Aggiungi due pagine</button>
+    <button id="delp">Elimina pagina</button>
+    <hr>
+    <button id="mvsh">Sposta in uno scaffale…</button>
+    <button id="trb">Traduci libro…</button>
+    <button id="exp">Esporta .txt</button>
+    <button id="bk">Backup</button>
+    <button id="epubm">Importa EPUB</button>
+    <button id="imp">Importa backup</button>
+    <hr>
+    <label class="mrow">Velocità di lettura<select id="rate" aria-label="Velocità di lettura"><option value="0.8">Lenta</option><option value="1" selected>Normale</option><option value="1.25">Veloce</option></select></label>
+    <button id="savenow">Salva ora</button>
+    <button id="delb" class="dg">Elimina libro</button>
+    <div class="mst"><span id="st" role="status"></span></div>
+  </div>
+</div>
+<div class="mid"><div class="stage"><button id="arL" class="arw" aria-label="Pagina precedente">‹</button><div id="book"></div><button id="arR" class="arw" aria-label="Pagina successiva">›</button></div><aside id="hlp" class="hlp" hidden><div class="hlh"><b>Evidenziazioni</b><span id="hln"></span><button id="hlc" aria-label="Chiudi pannello">×</button></div><div id="hll"></div></aside><button id="fab" class="fab" aria-label="Flashcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="14" height="11" rx="2"/><path d="M7 7V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M6.5 11.5h7M6.5 14.5h4"/></svg><b id="fabn">0</b></button></div>
+<div class="nav">
+  <div class="seg"><button id="prev" aria-label="Pagina precedente">‹</button><span id="info"></span><button id="next" aria-label="Pagina successiva">›</button></div>
+  <div class="seg"><input id="gop" type="number" min="1" inputmode="numeric" placeholder="Pag." aria-label="Vai alla pagina"><button id="gob">Vai</button></div>
+  <div class="seg"><button id="bm">Segnalibro</button><button id="gobm" aria-label="Vai al segnalibro" title="Vai al segnalibro">→</button></div>
+  <div class="seg"><input type="color" id="tabc" value="#d9534f" aria-label="Colore del tab" title="Colore del tab"><button id="tabb">Tab +</button></div>
+</div>
+</div>
+<div id="hlbar" class="hlbar" hidden><span id="hlmain" class="hg"><button class="sw y" data-c="y" aria-label="Giallo"></button><button class="sw g" data-c="g" aria-label="Verde"></button><button class="sw b" data-c="b" aria-label="Azzurro"></button><button class="sw p" data-c="p" aria-label="Rosa"></button><button id="hlx" class="hx" aria-label="Rimuovi evidenziazione" title="Rimuovi evidenziazione">✕</button><span class="vs"></span><button id="fcbtn" class="fb" title="Crea flashcard dal testo selezionato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="14" height="11" rx="2"/><path d="M7 7V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M6.5 11.5h7M6.5 14.5h4"/></svg>Crea flashcard</button></span><span id="fcpick" class="hg" hidden><span class="fq">Metti il testo su</span><button class="fb" data-s="f">Front</button><button class="fb" data-s="b">Back</button><button id="fcx" class="hx" aria-label="Annulla">✕</button></span></div><div id="dmark" class="dropmark"></div><div id="measure"></div>
+<div id="fcr" class="fcov" hidden><div class="fcbox"><div class="fchd"><b>Ripasso flashcard</b><span id="fcrp"></span><button id="fcrc" aria-label="Chiudi">×</button></div>
+<div class="fcscene" id="fcrsc" title="Clicca per girare"><div class="fccard" id="fcrcard"><div class="fcface"><span class="fcl">FRONT</span><div class="fct" id="fcrf"></div></div><div class="fcface bk"><span class="fcl">BACK</span><div class="fct" id="fcrb"></div></div></div></div>
+<div class="fcact" id="fcra1"><button id="fcrflip">⟲ Gira la card</button></div>
+<div class="fcact v0" id="fcra2"><button id="fcrno">Da rivedere</button><button id="fcrok" class="p">La so</button></div>
+<div class="fcact sm" id="fcra3"><button id="fcred">Modifica</button><button id="fcrsh">Mischia</button></div>
+<div class="fcdone" id="fcrdone" hidden><div id="fcrdt"></div><div class="fcact"><button id="fcrag" class="p">Ripeti tutto</button><button id="fcrcl">Chiudi</button></div></div></div></div>
+<div id="fce" class="fcov" hidden><div class="fcbox"><div class="fchd"><b id="fcet">Nuova flashcard</b><button id="fcec" aria-label="Chiudi">×</button></div>
+<div class="fcscene"><div class="fccard" id="fccard"><div class="fcface"><span class="fcl">FRONT</span><textarea spellcheck="false" id="fctf" placeholder="Scrivi il fronte (la domanda)…"></textarea></div><div class="fcface bk"><span class="fcl">BACK</span><textarea spellcheck="false" id="fctb" placeholder="Scrivi il retro (la risposta)…"></textarea></div></div></div>
+<div class="fcact"><button id="fcflip">⟲ Gira</button><span class="fsp"></span><button id="fcdel" class="dg" hidden>Elimina</button><button id="fcsave" class="p">Salva</button></div></div></div>
+<div id="toast" class="toast" role="status"></div>
+<div id="shm" class="fcov" hidden><div class="fcbox"><div class="fchd"><b>Sposta in uno scaffale</b><button id="shmc" aria-label="Chiudi">×</button></div><div id="shml" class="shml"></div><div class="fcact"><button id="shmn">+ Nuovo scaffale</button></div></div></div>
+<div id="trm" class="fcov" hidden><div class="fcbox trbox"><div class="fchd"><b>Traduci libro</b><button id="trcl" aria-label="Chiudi">×</button></div>
+<label>Lingua originale del libro<select id="trsrc"><option value="auto">Rileva automaticamente</option></select></label>
+<label>Traduci in<select id="trlang"></select></label>
+<div id="tri" class="tri"></div>
+<div class="fcact"><button id="trres" class="p" hidden>Continua</button><button id="trgo" class="p">Avvia traduzione</button></div></div></div>
+<div id="trp" class="trp" hidden><div class="trl"><span id="trt"></span><button id="trop" class="p" hidden>Apri</button><button id="trx">Interrompi</button></div><div class="trbarw"><i id="trbar"></i></div></div>
+<div id="busy" class="fcov" hidden><div style="text-align:center"><div id="busyt" style="font:600 18px Georgia,serif">Importazione…</div><div class="fcact" style="margin-top:16px"><button id="busyx">Annulla</button></div></div></div>
+<input type="file" id="epubf" accept=".epub,application/epub+zip" hidden>
+<div id="mp" hidden><b>Musica di sottofondo</b>
+<div class="r"><button id="madd" class="p">+ Aggiungi brani</button><input type="file" id="mfile" accept="audio/*" multiple hidden></div>
+<div id="mlist"></div>
+<div class="r"><button id="mprev" aria-label="Precedente">⏮</button><button id="mpp" aria-label="Play o pausa">▶</button><button id="mnext" aria-label="Successivo">⏭</button><input type="range" id="mv" min="0" max="100" aria-label="Volume"></div>
+<div id="mmsg"></div></div>
+<script src="app.js"></script>
+</body>
+</html>
