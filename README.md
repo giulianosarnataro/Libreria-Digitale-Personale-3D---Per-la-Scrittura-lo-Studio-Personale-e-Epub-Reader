@@ -2,6 +2,8 @@
 
 Una libreria personale e un lettore di libri in 3D che girano interamente nel browser: scaffali di legno con i tuoi libri, pagine che si sfogliano, evidenziazioni, flashcard, importazione di EPUB e traduzione sul dispositivo. Nessun server, nessun account, nessuna dipendenza da installare.
 
+<img width="1885" height="907" alt="Screenshot 2026-11-17 104435" src="https://github.com/user-attachments/assets/426b4dcc-40a8-41b2-9d1e-10ab6160e319" />
+
 ## Caratteristiche
 
 **Libreria**
