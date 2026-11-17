@@ -1,4 +1,4 @@
-# Libro 3D
+# Libreria-Digitale-Personale-3D
 
 Una libreria personale e un lettore di libri in 3D che girano interamente nel browser: scaffali di legno con i tuoi libri, pagine che si sfogliano, evidenziazioni, flashcard, importazione di EPUB e traduzione sul dispositivo. Nessun server, nessun account, nessuna dipendenza da installare.
 
