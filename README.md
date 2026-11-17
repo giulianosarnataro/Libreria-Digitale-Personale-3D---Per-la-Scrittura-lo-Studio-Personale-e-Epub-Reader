@@ -2,8 +2,6 @@
 
 Una libreria personale e un lettore di libri in 3D che girano interamente nel browser: scaffali di legno con i tuoi libri, pagine che si sfogliano, evidenziazioni, flashcard, importazione di EPUB e traduzione sul dispositivo. Nessun server, nessun account, nessuna dipendenza da installare.
 
-> Aggiungi qui uno screenshot, ad esempio `docs/screenshot.png`, e mostralo con `![Libro 3D](docs/screenshot.png)`.
-
 ## Caratteristiche
 
 **Libreria**
@@ -74,7 +72,7 @@ poi vai su `http://localhost:8000`.
 ## Struttura del progetto
 
 ```
-libro3d/
+libreria3d/
 ├── index.html   struttura della pagina
 ├── style.css    stile (scaffali 3D, libro, pannelli, temi)
 ├── app.js       logica dell'app (libreria, lettore, EPUB, flashcard, traduzione)
@@ -102,6 +100,4 @@ I tre file devono restare nella stessa cartella. Non ci sono librerie esterne n�
 
 Segnalazioni e proposte sono benvenute: apri una issue descrivendo cosa hai provato e in quale browser. Per le modifiche al codice, apri una pull request tenendo separati stile (`style.css`) e logica (`app.js`).
 
-## Licenza
 
-Scegli una licenza prima di pubblicare (ad esempio MIT) e aggiungi qui il nome e il file `LICENSE`.
